@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { format, parseISO } from 'date-fns';
 import { Plus, Trophy, Pencil, Check, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
@@ -33,13 +34,16 @@ export function DailyTracker({ dateStr, count, onAdd, onSet }) {
     return (
         <Card className="w-full max-w-md mx-auto shadow-lg border-2 border-primary/10">
             <CardHeader className="text-center pb-2">
-                <CardTitle className="text-lg font-medium text-muted-foreground uppercase tracking-wider flex items-center justify-center relative">
-                    Daily Progress
+                <CardTitle className="text-lg font-medium text-muted-foreground uppercase tracking-wider flex flex-col items-center justify-center relative">
+                    <span>Daily Progress</span>
+                    <span className="text-sm font-normal text-muted-foreground/70 normal-case mt-1">
+                        {format(parseISO(dateStr), 'EEEE, MMM d')}
+                    </span>
                     {!isEditing && (
                         <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute right-0 h-6 w-6 text-muted-foreground hover:text-primary"
+                            className="absolute right-0 top-0 h-6 w-6 text-muted-foreground hover:text-primary"
                             onClick={() => setIsEditing(true)}
                         >
                             <Pencil className="w-3 h-3" />
