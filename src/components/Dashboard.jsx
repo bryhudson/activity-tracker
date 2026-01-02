@@ -58,7 +58,7 @@ export function Dashboard({ data, todayStr }) {
                 <CardHeader>
                     <CardTitle>Last 7 Days</CardTitle>
                 </CardHeader>
-                <CardContent className="h-[250px] w-full">
+                <CardContent className="h-[350px] w-full p-2 sm:p-6">
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={chartData}>
                             <XAxis
