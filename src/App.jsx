@@ -7,7 +7,7 @@ import { CalendarView } from './components/CalendarView'
 import { cn } from './lib/utils'
 
 function App() {
-  const { data, todayStr, getCountForDate, addPushups } = usePushups()
+  const { data, todayStr, getCountForDate, addPushups, setPushups } = usePushups()
   const [activeTab, setActiveTab] = useState('tracker')
   const [startDate, setStartDate] = useState(() => {
     return localStorage.getItem('challenge-start-date') || todayStr
@@ -39,6 +39,7 @@ function App() {
               dateStr={todayStr}
               count={getCountForDate(todayStr)}
               onAdd={(amount) => addPushups(todayStr, amount)}
+              onSet={(amount) => setPushups(todayStr, amount)}
             />
           </div>
         )}
