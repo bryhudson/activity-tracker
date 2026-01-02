@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Dumbbell, Calendar as CalendarIcon, BarChart3 } from 'lucide-react'
 import { usePushups } from './hooks/usePushups'
+import { useWater } from './hooks/useWater'
 import { DailyTracker } from './components/DailyTracker'
+import { WaterTracker } from './components/WaterTracker'
 import { Dashboard } from './components/Dashboard'
 import { CalendarView } from './components/CalendarView'
+import { Quotes } from './components/Quotes'
 import { cn } from './lib/utils'
 
 function App() {
   const { data, todayStr, getCountForDate, addPushups, setPushups } = usePushups()
+  const { getCups, addCup, removeCup } = useWater()
   const [activeTab, setActiveTab] = useState('tracker')
   const [startDate, setStartDate] = useState(() => {
     return localStorage.getItem('challenge-start-date') || todayStr
@@ -79,11 +83,19 @@ function App() {
       <main className="flex-1 p-4 max-w-md mx-auto w-full">
         {activeTab === 'tracker' && (
           <div className="space-y-6 animate-in fade-in zoom-in-95 duration-300">
+            <Quotes />
+
             <DailyTracker
               dateStr={todayStr}
               count={getCountForDate(todayStr)}
               onAdd={(amount) => addPushups(todayStr, amount)}
               onSet={(amount) => setPushups(todayStr, amount)}
+            />
+
+            <WaterTracker
+              cups={getCups(todayStr)}
+              onAdd={() => addCup(todayStr)}
+              onRemove={() => removeCup(todayStr)}
             />
           </div>
         )}
