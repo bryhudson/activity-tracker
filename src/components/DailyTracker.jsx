@@ -111,24 +111,24 @@ export function DailyTracker({ dateStr, count, onAdd, onSet }) {
                 <div className="grid grid-cols-3 gap-3">
                     <Button
                         variant="outline"
-                        className="h-16 text-lg hover:border-primary/50 hover:bg-primary/5 active:scale-95 transition-all"
+                        className="h-20 text-xl hover:border-primary/50 hover:bg-primary/5 active:scale-95 transition-all touch-manipulation"
                         onClick={() => onAdd(1)}
                     >
-                        <Plus className="w-4 h-4 mr-1" /> 1
+                        <Plus className="w-5 h-5 mr-1" /> 1
                     </Button>
                     <Button
                         variant="outline"
-                        className="h-16 text-lg hover:border-primary/50 hover:bg-primary/5 active:scale-95 transition-all"
+                        className="h-20 text-xl hover:border-primary/50 hover:bg-primary/5 active:scale-95 transition-all touch-manipulation"
                         onClick={() => onAdd(5)}
                     >
-                        <Plus className="w-4 h-4 mr-1" /> 5
+                        <Plus className="w-5 h-5 mr-1" /> 5
                     </Button>
                     <Button
                         variant="outline"
-                        className="h-16 text-lg font-bold border-primary/20 bg-primary/5 hover:bg-primary/10 active:scale-95 transition-all"
+                        className="h-20 text-xl font-bold border-primary/20 bg-primary/5 hover:bg-primary/10 active:scale-95 transition-all touch-manipulation"
                         onClick={() => onAdd(10)}
                     >
-                        <Plus className="w-4 h-4 mr-1" /> 10
+                        <Plus className="w-5 h-5 mr-1" /> 10
                     </Button>
                 </div>
             </CardContent>

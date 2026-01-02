@@ -56,12 +56,12 @@ function App() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 border-t bg-background p-2 pb-6 safe-area-pb z-50">
+      <nav className="fixed bottom-0 left-0 right-0 border-t bg-background p-2 pb-6 safe-area-pb z-50 shadow-[0_-1px_3px_rgba(0,0,0,0.05)]">
         <div className="max-w-md mx-auto grid grid-cols-3 gap-1">
           <button
             onClick={() => setActiveTab('tracker')}
             className={cn(
-              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors",
+              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors min-h-[44px] active:scale-95",
               activeTab === 'tracker' ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted"
             )}
           >
@@ -72,7 +72,7 @@ function App() {
           <button
             onClick={() => setActiveTab('calendar')}
             className={cn(
-              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors",
+              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors min-h-[44px] active:scale-95",
               activeTab === 'calendar' ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted"
             )}
           >
@@ -83,7 +83,7 @@ function App() {
           <button
             onClick={() => setActiveTab('stats')}
             className={cn(
-              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors",
+              "flex flex-col items-center justify-center p-2 rounded-lg transition-colors min-h-[44px] active:scale-95",
               activeTab === 'stats' ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted"
             )}
           >
