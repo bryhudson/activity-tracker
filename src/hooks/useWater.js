@@ -52,6 +52,7 @@ export function useWater() {
 
     const updateCloud = async (newData) => {
         setWaterData(newData);
+        localStorage.setItem(STORAGE_KEY_WATER, JSON.stringify(newData)); // Backup immediately
         if (user) {
             const docRef = doc(db, "users", user.uid);
             await setDoc(docRef, { water: newData }, { merge: true });

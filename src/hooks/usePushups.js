@@ -62,6 +62,7 @@ export function usePushups() {
     const updateCloud = async (newData) => {
         // Optimistic update
         setData(newData);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newData)); // Backup immediately
         if (user) {
             const docRef = doc(db, "users", user.uid);
             await setDoc(docRef, { pushups: newData }, { merge: true });
