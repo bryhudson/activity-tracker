@@ -5,8 +5,11 @@ import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { cn } from '../lib/utils';
 
 const GOAL_CUPS = 8;
+const CUP_L = 0.25;
 
 export function WaterTracker({ cups, onAdd, onRemove }) {
+    const liters = cups * CUP_L;
+    const goalLiters = GOAL_CUPS * CUP_L;
     const progress = Math.min(100, (cups / GOAL_CUPS) * 100);
 
     return (
@@ -16,9 +19,14 @@ export function WaterTracker({ cups, onAdd, onRemove }) {
                     <Droplets className="w-5 h-5" />
                     Hydration
                 </CardTitle>
-                <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                    {cups} <span className="text-sm font-normal text-muted-foreground">/ {GOAL_CUPS} cups</span>
-                </span>
+                <div className="flex flex-col items-end">
+                    <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        {liters}L <span className="text-sm font-normal text-muted-foreground">/ {goalLiters}L</span>
+                    </span>
+                    <span className="text-xs text-muted-foreground font-medium">
+                        ({cups} cups)
+                    </span>
+                </div>
             </CardHeader>
 
             <CardContent className="space-y-4">
@@ -52,7 +60,7 @@ export function WaterTracker({ cups, onAdd, onRemove }) {
                         className="flex-1 bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20"
                         onClick={onAdd}
                     >
-                        <Plus className="w-4 h-4 mr-2" /> Drink Water (8oz)
+                        <Plus className="w-4 h-4 mr-2" /> Drink Water (250ml)
                     </Button>
                 </div>
             </CardContent>
