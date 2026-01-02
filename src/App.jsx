@@ -25,7 +25,7 @@ function App() {
         <div className="max-w-md mx-auto p-4 pb-2 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold tracking-tight bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-              Pushup Challenge
+              Pushup Challenge <span className="text-xs font-normal text-muted-foreground/50">v1.1</span>
             </h1>
             <div className="text-sm font-medium text-muted-foreground">
               Day {Math.max(1, Math.floor((new Date(todayStr) - new Date(startDate)) / (1000 * 60 * 60 * 24)) + 1)} / 45
