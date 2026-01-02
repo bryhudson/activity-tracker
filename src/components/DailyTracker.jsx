@@ -37,7 +37,13 @@ export function DailyTracker({ dateStr, count, onAdd, onSet }) {
                 <CardTitle className="text-lg font-medium text-muted-foreground uppercase tracking-wider flex flex-col items-center justify-center relative">
                     <span>Daily Progress</span>
                     <span className="text-sm font-normal text-muted-foreground/70 normal-case mt-1">
-                        {format(parseISO(dateStr), 'EEEE, MMM d')}
+                        {(() => {
+                            try {
+                                return dateStr ? format(parseISO(dateStr), 'EEEE, MMM d') : '';
+                            } catch (e) {
+                                return dateStr;
+                            }
+                        })()}
                     </span>
                     {!isEditing && (
                         <Button

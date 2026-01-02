@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
-import { Quote } from 'lucide-react';
 
 const QUOTES = [
     "Don't count the days, make the days count.",
@@ -28,7 +27,7 @@ export function Quotes() {
     return (
         <Card className="bg-gradient-to-r from-violet-500/10 to-purple-500/10 border-none shadow-none mb-6">
             <CardContent className="p-4 flex gap-3 items-start">
-                <Quote className="w-5 h-5 text-purple-500 shrink-0 mt-1" />
+                <span className="text-2xl text-purple-500 font-serif leading-none">"</span>
                 <p className="text-sm font-medium italic text-muted-foreground">
                     "{quote}"
                 </p>
