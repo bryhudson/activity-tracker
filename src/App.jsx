@@ -14,13 +14,9 @@ function App() {
   const { data, todayStr, getCountForDate, addPushups, setPushups } = usePushups()
   const { getCups, addCup, removeCup } = useWater()
   const [activeTab, setActiveTab] = useState('tracker')
-  const [startDate, setStartDate] = useState(() => {
-    return localStorage.getItem('challenge-start-date') || todayStr
-  })
+  const [startDate] = useState('2025-01-01')
 
-  useEffect(() => {
-    localStorage.setItem('challenge-start-date', startDate)
-  }, [startDate])
+
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
