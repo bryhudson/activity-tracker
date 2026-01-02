@@ -7,6 +7,7 @@ import { WaterTracker } from './components/WaterTracker'
 import { Dashboard } from './components/Dashboard'
 import { CalendarView } from './components/CalendarView'
 import { Quotes } from './components/Quotes'
+import { Auth } from './components/Auth'
 import { cn } from './lib/utils'
 
 function App() {
@@ -26,12 +27,15 @@ function App() {
       {/* Header with Navigation */}
       <header className="border-b sticky top-0 bg-background/95 backdrop-blur z-10 transition-all">
         <div className="max-w-md mx-auto p-4 pb-2 flex items-center justify-between">
-          <h1 className="text-xl font-bold tracking-tight bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Pushup Challenge
-          </h1>
-          <div className="text-sm font-medium text-muted-foreground">
-            Day {Math.max(1, Math.floor((new Date(todayStr) - new Date(startDate)) / (1000 * 60 * 60 * 24)) + 1)} / 45
+          <div>
+            <h1 className="text-xl font-bold tracking-tight bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              Pushup Challenge
+            </h1>
+            <div className="text-sm font-medium text-muted-foreground">
+              Day {Math.max(1, Math.floor((new Date(todayStr) - new Date(startDate)) / (1000 * 60 * 60 * 24)) + 1)} / 45
+            </div>
           </div>
+          <Auth />
         </div>
 
         {/* Navigation Tabs */}

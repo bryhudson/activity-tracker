@@ -60,7 +60,7 @@ export function WaterTracker({ cups, onAdd, onRemove }) {
                         className="flex-1 bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20"
                         onClick={onAdd}
                     >
-                        <Plus className="w-4 h-4 mr-2" /> Drink Water (250ml)
+                        <Plus className="w-4 h-4 mr-2" /> Drink Water (+250ml)
                     </Button>
                 </div>
             </CardContent>
